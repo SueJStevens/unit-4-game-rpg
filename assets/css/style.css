@@ -1,0 +1,46 @@
+@font-face {
+    font-family: 'Showtime';
+    src: url('../fonts/showtime-webfont.woff2') format('woff2'),
+         url('../fonts/showtime-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'handwriting';
+    src: url('../fonts/journal-webfont.woff2') format('woff2'),
+         url('../fonts/journal-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'typewriter';
+    src: url('../fonts/veteran_typewriter-webfont.woff2') format('woff2'),
+         url('../fonts/veteran_typewriter-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*Custom classes used for testing purposes*/
+.red-border {
+    border-style: solid;
+    border-color: red;
+}
+
+.blue-border {
+    border-style: solid;
+    border-color: blue;
+}
+
+.green-border {
+    border-style: solid;
+    border-color: green;
+}
+
+h1 {
+    font: 5rem "Showtime", sans-serif;
+}
+.hollywood {
+    font: 2rem "Showtime", sans-serif;
+}

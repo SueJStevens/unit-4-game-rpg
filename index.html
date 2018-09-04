@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RPG</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--link rel="shortcut icon" href="assets/images/favicon.png" /-->
+    <!--Bootstrap stylesheet-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <!--Custom local stylesheet for common shared elements like header and footer-->
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+
+    <!-- JavaScript
+    ================================================== -->
+    <!-- Placed at the beginning of the document so jquery components work properly -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="assets/javascript/game.js" type="text/javascript"></script>
+
+</head>
+<body>
+
+    <header>
+        <h1>(RPG_Game_-_Game_Title_Here)</h1>
+    </header>
+
+    <hr>
+
+    <main role="main">
+
+        <div id="characterContainer" class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="text-left"><strong>Choose Your Star</strong></h2>
+                </div>
+            </div>
+            <!--Dynamic Character List-->
+            <div id="characterList" class="row"></div>
+        </div>
+
+        <hr>
+
+        <div class="container-fluid">
+            <div id="playerCircle" class="row"></div>
+        </div>        
+
+        <hr>
+
+        <div id="opponentListContainer" class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="text-left"><strong>Frenemies Available to Attack</strong></h2>
+                </div>
+            </div>
+            
+            <!--Dynamic List of Available Opponents-->
+            <div id="opponentsAvailList" class="row"></div><!--End of Dynamic Opponents-->
+
+        </div> <!--close OpponentListContainer-->
+        
+
+        
+
+
+
+        <hr>
+
+        <div id="battlefield" class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="text-left"><strong>Battle Field</strong></h2>
+                </div>
+            </div>
+
+            <div class="row h-100">
+                <div id="defender" class="offset-3 col-2 my-auto text-center defender">
+                </div>
+                <div class="col-2 my-auto text-center">
+                        <img class="img-responsive d-inline p-1 h-223 w-184" id="battleButton" src='assets/images/HollywoodStar1_184x223.png' alt='Hollywood Star' value=4 />
+                </div>
+                <div id="enemy" class="col-2 my-auto text-center enemy">
+                </div>   
+            </div>
+
+        </div>
+        <hr>
+
+        
+        <div id="msgBoard" class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="text-left"><strong>Message Board</strong></h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col mx-auto">
+                    <P class="">You attacked Enemy Name for xx damage.</P>
+                    <p>Enemy Name attacked you back for xx damage.</p>
+                    <p>You have been defeated ... game over</p>
+                    <p>You have defeated Enemy Name, you can choose another enemy to fight.</p>
+                    <p>No enemy here.  You must choose an enemy to continue the game.</p>
+                </div>
+            </div>        
+        </div>        
+
+
+        <hr>
+
+        <div class="row">
+            <div id="restartDiv" class="col-12 text-center">
+                <button class="btn-lg btn-outline-dark restart hollywood">Restart</button>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="col-12">
+                <p><strong>Scoreboard</strong></p>
+                <p>Attack Power:</p>
+                <p>Health Power:</p>
+                <p>Counter Attack Power:</p>
+            </div>
+        </div>
+
+        <hr>
+
+    </main>
+
+    <!--footer will always be on bottom of content-->
+    <footer class="sticky-bottom">
+        <!--spans the full width of the viewport-->
+        <div class="container-fluid container-bottom">
+            <!--Nav Bar copyright in footer-->
+            <nav class="navbar navbar-expand-lg align-middle pl-0">
+                <span id="copyright" class="align-middle">&copy; Copyright 2018 Sue J. Stevens</span>
+            </nav>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
