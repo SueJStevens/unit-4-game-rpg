@@ -2,7 +2,7 @@ var game = {
     states : [ "notStarted", "playerCharChosen", "opponentCharChosen", "battleInProgress", 
 "opponentDefeated", "gameOver" ],
     currentState : "NotStarted",
-    charactersAll : [ "Nicole Kidman", "George Clooney",  "Name3", "Name4", "Name5" , "Name6" , "Name7" , "Name8" , "Name9" ],
+    charactersAll : [ "Nicole Kidman", "George Clooney",  "Johnny Depp", "Salma Hayek", "Reese Witherspoon" , "Morgan Freeman" , "Will Smith" , "Helen Mirren" , "Emma Stone" , "Patrick Stewart"],
     charNumToPlay: 4,
     characters : [ "Name1", "Name2",  "Name3", "Name4" ],
     healthArray : [ 1, 2, 3, 4 ],
@@ -143,15 +143,13 @@ var game = {
         //identify the characters in the array and create the HTML to hold them in a list
         for (var i=0; i<game.characters.length; i++) {
             name=game.characters[i];
-            healthPoints="HP "+game.healthArray[i];
+            healthPoints="SP "+game.healthArray[i];
             charID=typeIn+"-"+[i];
             charindex=[i];
 
             cat1 = "PoloroidFrame1.jpg";
-            if (name === "Nicole Kidman" || name === "George Clooney") {
                 var temp1 = name;
-                cat1 = temp1.replace(" ","_") + "_poloroid.png";
-            }
+                cat1 = temp1.replace(" ","_") + "_Polaroid.png";
 
             //construct the the html to append
             str = '<div class="col"> \
@@ -182,11 +180,8 @@ var game = {
 
 console.log("player 180: " + player);
 cat = "PoloroidFrame4.png";
-if (player === "Nicole Kidman" || player === "George Clooney") {
     var temp = player;
     cat = temp.replace(" ","_") + "_starlet.png";
-}
-console.log(cat);
 
 
         //construct the the html to append
@@ -196,7 +191,7 @@ console.log(cat);
                     <div class="col-2 text-center"> \
                         <img class="img-responsive d-inline p-1 character" id="playerImg" src="assets/images/' + cat + '" alt="' + player +'" value=1 /> \
                         <p class="m-0">' + player + '</p> \
-                        <p class="m-0">HP: ' + phealth + '</p> \
+                        <p class="m-0">SP: ' + phealth + '</p> \
                     </div> \
                 </div> \
             </div>'
@@ -223,17 +218,14 @@ console.log(cat);
             battlelabel='b-list';
         }
 
-        console.log("row 217: " + player);
         cat = "PoloroidFrame4.png";
-        if (player === "Nicole Kidman" || player === "George Clooney") {
             var temp = player;
             cat = temp.replace(" ","_") + "_starlet.png";
-        }
 
         str = '<p>'+ battlelabel +'</p> \
                     <img class="img-responsive d-inline p-1 ' + who +'" id="'+who+'Img" src="assets/images/' + cat + '" alt="' + player +'" value=1 /> \
                         <p class="m-0">' + player + '</p> \
-                        <p id="' +who+ '-hp" class="m-0">HP: ' + phealth + '</p> \
+                        <p id="' +who+ '-sp" class="m-0">SP: ' + phealth + '</p> \
                     </div> \
                 </div> \
             </div>'
@@ -347,20 +339,15 @@ console.log(cat);
                 //get photo name
                 
                 cat2 = "PoloroidFrame4.png";
-                if (game.player === "Nicole Kidman" || game.player === "George Clooney") {
                     var temp2 = game.player;
                     cat2 = 'assets\\images\\' + temp2.replace(" ","_") + "_Dead.png";
-                }
                 $("#defenderImg").attr("src",cat2);
 
                 //is opponent also dead?
                 if (game.opponentHealth <=0) {
                     cat3 = "PoloroidFrame4.png";
-                    console.log(game.opponent);
-                    if (game.opponent === "Nicole Kidman" || game.opponent === "George Clooney") {
                         var temp3 = game.opponent;
                         cat3 = 'assets\\images\\' + temp3.replace(" ","_") + "_Dead.png";
-                    }
                     $("#enemyImg").attr("src",cat3);
                 }
 
@@ -375,11 +362,8 @@ console.log(cat);
                 console.log ("Opponent Dead!");
                 //game over -- opponent dead
                 cat3 = "PoloroidFrame4.png";
-                console.log(game.opponent);
-                if (game.opponent === "Nicole Kidman" || game.opponent === "George Clooney") {
                     var temp3 = game.opponent;
                     cat3 = 'assets\\images\\' + temp3.replace(" ","_") + "_Dead.png";
-                }
                 $("#enemyImg").attr("src",cat3);
 
                 //check to see if there are any other opponents
@@ -420,11 +404,9 @@ console.log(cat);
         
         
         //display new health points on the character
-        $('#defender-hp').text('hp: '+game.playerHealth);
+        $('#defender-sp').text('sp: '+game.playerHealth);
         //display new health points on the enemy
-        $('#enemy-hp').text('hp: '+game.opponentHealth);
-        //defender-hp
-        //enemy-hp
+        $('#enemy-sp').text('sp: '+game.opponentHealth);
 
 
 
