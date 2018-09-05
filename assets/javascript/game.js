@@ -2,7 +2,7 @@ var game = {
     states : [ "notStarted", "playerCharChosen", "opponentCharChosen", "battleInProgress", 
 "opponentDefeated", "gameOver" ],
     currentState : "NotStarted",
-    charactersAll : [ "Nicole Kidman", "Name2",  "Name3", "Name4", "Name5" , "Name6" , "Name7" , "Name8" , "Name9" ],
+    charactersAll : [ "Nicole Kidman", "George Clooney",  "Name3", "Name4", "Name5" , "Name6" , "Name7" , "Name8" , "Name9" ],
     charNumToPlay: 4,
     characters : [ "Name1", "Name2",  "Name3", "Name4" ],
     healthArray : [ 1, 2, 3, 4 ],
@@ -148,7 +148,7 @@ var game = {
             charindex=[i];
 
             cat1 = "PoloroidFrame1.jpg";
-            if (name === "Nicole Kidman") {
+            if (name === "Nicole Kidman" || name === "George Clooney") {
                 var temp1 = name;
                 cat1 = temp1.replace(" ","_") + "_poloroid.png";
             }
@@ -182,7 +182,7 @@ var game = {
 
 console.log("player 180: " + player);
 cat = "PoloroidFrame4.png";
-if (player === "Nicole Kidman") {
+if (player === "Nicole Kidman" || player === "George Clooney") {
     var temp = player;
     cat = temp.replace(" ","_") + "_starlet.png";
 }
@@ -225,7 +225,7 @@ console.log(cat);
 
         console.log("row 217: " + player);
         cat = "PoloroidFrame4.png";
-        if (player === "Nicole Kidman") {
+        if (player === "Nicole Kidman" || player === "George Clooney") {
             var temp = player;
             cat = temp.replace(" ","_") + "_starlet.png";
         }
@@ -346,8 +346,8 @@ console.log(cat);
                 //swap photo
                 //get photo name
                 
-                cat2 = "PoloroidFrame4.jpg";
-                if (game.player === "Nicole Kidman") {
+                cat2 = "PoloroidFrame4.png";
+                if (game.player === "Nicole Kidman" || game.player === "George Clooney") {
                     var temp2 = game.player;
                     cat2 = 'assets\\images\\' + temp2.replace(" ","_") + "_Dead.png";
                 }
@@ -355,9 +355,9 @@ console.log(cat);
 
                 //is opponent also dead?
                 if (game.opponentHealth <=0) {
-                    cat3 = "PoloroidFrame4.jpg";
+                    cat3 = "PoloroidFrame4.png";
                     console.log(game.opponent);
-                    if (game.opponent === "Nicole Kidman") {
+                    if (game.opponent === "Nicole Kidman" || game.opponent === "George Clooney") {
                         var temp3 = game.opponent;
                         cat3 = 'assets\\images\\' + temp3.replace(" ","_") + "_Dead.png";
                     }
@@ -374,9 +374,9 @@ console.log(cat);
             case (game.opponentHealth <=0):
                 console.log ("Opponent Dead!");
                 //game over -- opponent dead
-                cat3 = "PoloroidFrame4.jpg";
+                cat3 = "PoloroidFrame4.png";
                 console.log(game.opponent);
-                if (game.opponent === "Nicole Kidman") {
+                if (game.opponent === "Nicole Kidman" || game.opponent === "George Clooney") {
                     var temp3 = game.opponent;
                     cat3 = 'assets\\images\\' + temp3.replace(" ","_") + "_Dead.png";
                 }
