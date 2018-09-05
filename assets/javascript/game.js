@@ -143,7 +143,7 @@ var game = {
         //identify the characters in the array and create the HTML to hold them in a list
         for (var i=0; i<game.characters.length; i++) {
             name=game.characters[i];
-            healthPoints="SP "+game.healthArray[i];
+            healthPoints="Star-Power: "+game.healthArray[i];
             charID=typeIn+"-"+[i];
             charindex=[i];
 
@@ -155,10 +155,10 @@ var game = {
             str = '<div class="col"> \
                     <div class="row h-100"> \
                         <div class="col my-auto mx-auto text-right"> \
-                            <p class="m-0 pr-3">' + name + '</p> \
-                            <p class="m-0 pr-3">' + healthPoints + '</p> \
+                            <p class="m-0 pr-0">' + name + '</p> \
+                            <p class="m-0 pr-0">' + healthPoints + '</p> \
                         </div> \
-                        <div class="col my-auto mx-auto text-right"> \
+                        <div class="col m-0 p-0 my-auto mx-auto text-right"> \
                             <img class="img-responsive d-inline p-1 ' + typeIn + '" id="' + charID + '" data-' + typeIn + '-index="' + charindex + '" src="assets/images/' + cat1 + '" alt="' + name + '" /> \
                         </div> \
                     </div> \
@@ -190,8 +190,7 @@ cat = "PoloroidFrame4.png";
                 <div class="row"> \
                     <div class="col-2 text-center"> \
                         <img class="img-responsive d-inline p-1 character" id="playerImg" src="assets/images/' + cat + '" alt="' + player +'" value=1 /> \
-                        <p class="m-0">' + player + '</p> \
-                        <p class="m-0">SP: ' + phealth + '</p> \
+                        <p class="m-0">Star-Power: ' + phealth + '</p> \
                     </div> \
                 </div> \
             </div>'
@@ -224,8 +223,7 @@ cat = "PoloroidFrame4.png";
 
         str = '<p>'+ battlelabel +'</p> \
                     <img class="img-responsive d-inline p-1 ' + who +'" id="'+who+'Img" src="assets/images/' + cat + '" alt="' + player +'" value=1 /> \
-                        <p class="m-0">' + player + '</p> \
-                        <p id="' +who+ '-sp" class="m-0">SP: ' + phealth + '</p> \
+                        <p id="' +who+ '-sp" class="m-0">Star-Power: ' + phealth + '</p> \
                     </div> \
                 </div> \
             </div>'
@@ -370,14 +368,14 @@ cat = "PoloroidFrame4.png";
                 console.log(game.characters.length);
                 if(game.characters.length > 0) {
                     msg += '<p>You have defeated ' + game.opponent + ', you can choose another enemy to fight.</p>';
-                    //hide the attack button
-                    elementToggle("#attack", "d-none", "add");
                     //show opponent list container
                     elementToggle("#opponentListContainer", "d-none", "show");
-
                 } else {
                     msg += '<p>You are the winner!... game over</p>'
                 }
+                //hide the attack button
+                elementToggle("#attack", "d-none", "add");
+
                 break;
             default:
                 console.log("Keep Playing");
@@ -404,9 +402,9 @@ cat = "PoloroidFrame4.png";
         
         
         //display new health points on the character
-        $('#defender-sp').text('sp: '+game.playerHealth);
+        $('#defender-sp').text('Star-Power: '+game.playerHealth);
         //display new health points on the enemy
-        $('#enemy-sp').text('sp: '+game.opponentHealth);
+        $('#enemy-sp').text('Star-Power: '+game.opponentHealth);
 
 
 
