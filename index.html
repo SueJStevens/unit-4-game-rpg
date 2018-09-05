@@ -24,7 +24,7 @@
 <body>
 
     <header>
-        <h1>(RPG_Game_-_Game_Title_Here)</h1>
+        <h1 class="text-center">Battle_of_the_Stars</h1>
     </header>
 
     <hr>
@@ -71,15 +71,15 @@
         <div id="battlefield" class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <h2 class="text-left"><strong>Battle Field</strong></h2>
+                    <h2 class="text-left"><strong>Battlefield</strong></h2>
                 </div>
             </div>
 
             <div class="row h-100">
                 <div id="defender" class="offset-3 col-2 my-auto text-center defender">
                 </div>
-                <div class="col-2 my-auto text-center">
-                        <img class="img-responsive d-inline p-1 h-223 w-184" id="battleButton" src='assets/images/HollywoodStar1_184x223.png' alt='Hollywood Star' value=4 />
+                <div id="attack" class="col-2 my-auto text-center">
+                        <img class="img-responsive d-inline p-1 h-223 w-184 attack" id="battleButton" src='assets/images/HollywoodStar1_184x223.png' alt='Hollywood Star' value=4 />
                 </div>
                 <div id="enemy" class="col-2 my-auto text-center enemy">
                 </div>   
@@ -97,12 +97,7 @@
             </div>
 
             <div class="row">
-                <div class="col mx-auto">
-                    <P class="">You attacked Enemy Name for xx damage.</P>
-                    <p>Enemy Name attacked you back for xx damage.</p>
-                    <p>You have been defeated ... game over</p>
-                    <p>You have defeated Enemy Name, you can choose another enemy to fight.</p>
-                    <p>No enemy here.  You must choose an enemy to continue the game.</p>
+                <div id="attackMsg" class="col mx-auto">
                 </div>
             </div>        
         </div>        
@@ -113,17 +108,6 @@
         <div class="row">
             <div id="restartDiv" class="col-12 text-center">
                 <button class="btn-lg btn-outline-dark restart hollywood">Restart</button>
-            </div>
-        </div>
-
-        <hr>
-
-        <div class="row">
-            <div class="col-12">
-                <p><strong>Scoreboard</strong></p>
-                <p>Attack Power:</p>
-                <p>Health Power:</p>
-                <p>Counter Attack Power:</p>
             </div>
         </div>
 
