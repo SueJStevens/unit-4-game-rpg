@@ -147,6 +147,12 @@ var game = {
             charID=typeIn+"-"+[i];
             charindex=[i];
 
+            cat1 = "PoloroidFrame1.jpg";
+            if (name === "Nicole Kidman") {
+                var temp1 = name;
+                cat1 = temp1.replace(" ","_") + "_poloroid.png";
+            }
+
             //construct the the html to append
             str = '<div class="col"> \
                     <div class="row h-100"> \
@@ -155,7 +161,7 @@ var game = {
                             <p class="m-0 pr-3">' + healthPoints + '</p> \
                         </div> \
                         <div class="col my-auto mx-auto text-right"> \
-                            <img class="img-responsive d-inline p-1 ' + typeIn + '" id="' + charID + '" data-' + typeIn + '-index="' + charindex + '" src="assets/images/poloroidFrame1.jpg" alt="' + name + '" /> \
+                            <img class="img-responsive d-inline p-1 ' + typeIn + '" id="' + charID + '" data-' + typeIn + '-index="' + charindex + '" src="assets/images/' + cat1 + '" alt="' + name + '" /> \
                         </div> \
                     </div> \
                 </div>'
@@ -173,14 +179,22 @@ var game = {
             list.removeChild(list.firstChild);
         }
 
-poloroid = "PoloroidFrame4.png";
+
+console.log("player 180: " + player);
+cat = "PoloroidFrame4.png";
+if (player === "Nicole Kidman") {
+    var temp = player;
+    cat = temp.replace(" ","_") + "_starlet.png";
+}
+console.log(cat);
+
 
         //construct the the html to append
         str = '<div class="col"> \
                 <h2 class="text-left"><strong>Starlet</strong></h2> \
                 <div class="row"> \
                     <div class="col-2 text-center"> \
-                        <img class="img-responsive d-inline p-1 character" id="playerImg" src="assets/images/' + poloroid + '" alt="' + player +'" value=1 /> \
+                        <img class="img-responsive d-inline p-1 character" id="playerImg" src="assets/images/' + cat + '" alt="' + player +'" value=1 /> \
                         <p class="m-0">' + player + '</p> \
                         <p class="m-0">HP: ' + phealth + '</p> \
                     </div> \
@@ -209,10 +223,15 @@ poloroid = "PoloroidFrame4.png";
             battlelabel='b-list';
         }
 
-        poloroid = "PoloroidFrame4.png";
+        console.log("row 217: " + player);
+        cat = "PoloroidFrame4.png";
+        if (player === "Nicole Kidman") {
+            var temp = player;
+            cat = temp.replace(" ","_") + "_starlet.png";
+        }
 
         str = '<p>'+ battlelabel +'</p> \
-                    <img class="img-responsive d-inline p-1 ' + who +'" id="'+who+'Img" src="assets/images/' + poloroid + '" alt="' + player +'" value=1 /> \
+                    <img class="img-responsive d-inline p-1 ' + who +'" id="'+who+'Img" src="assets/images/' + cat + '" alt="' + player +'" value=1 /> \
                         <p class="m-0">' + player + '</p> \
                         <p id="' +who+ '-hp" class="m-0">HP: ' + phealth + '</p> \
                     </div> \
@@ -323,13 +342,46 @@ poloroid = "PoloroidFrame4.png";
             case (game.playerHealth <=0):
                 console.log ("Player Dead!");
                 //game over -- player dead
+
+                //swap photo
+                //get photo name
+                
+                cat2 = "PoloroidFrame4.jpg";
+                if (game.player === "Nicole Kidman") {
+                    var temp2 = game.player;
+                    cat2 = 'assets\\images\\' + temp2.replace(" ","_") + "_Dead.png";
+                }
+                $("#defenderImg").attr("src",cat2);
+
+                //is opponent also dead?
+                if (game.opponentHealth <=0) {
+                    cat3 = "PoloroidFrame4.jpg";
+                    console.log(game.opponent);
+                    if (game.opponent === "Nicole Kidman") {
+                        var temp3 = game.opponent;
+                        cat3 = 'assets\\images\\' + temp3.replace(" ","_") + "_Dead.png";
+                    }
+                    $("#enemyImg").attr("src",cat3);
+                }
+
+
+
+                //msg board
                 msg += '<p>You have been defeated ... game over</p>';
                 //hide the attack button
                 elementToggle("#attack", "d-none", "add");
                 break;
             case (game.opponentHealth <=0):
                 console.log ("Opponent Dead!");
-                //game over -- player dead
+                //game over -- opponent dead
+                cat3 = "PoloroidFrame4.jpg";
+                console.log(game.opponent);
+                if (game.opponent === "Nicole Kidman") {
+                    var temp3 = game.opponent;
+                    cat3 = 'assets\\images\\' + temp3.replace(" ","_") + "_Dead.png";
+                }
+                $("#enemyImg").attr("src",cat3);
+
                 //check to see if there are any other opponents
                 console.log(game.characters.length);
                 if(game.characters.length > 0) {
