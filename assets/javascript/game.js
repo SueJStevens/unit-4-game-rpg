@@ -1,38 +1,24 @@
 var game = {
-    states : [ "notStarted", "playerCharChosen", "opponentCharChosen", "battleInProgress", 
-"opponentDefeated", "gameOver" ],
+    states : [ "notStarted", "playerCharChosen", "opponentCharChosen", "battleInProgress", "opponentDefeated", "gameOver" ],
     currentState : "NotStarted",
+    valDeck1: [],
+    valDeck2: [],
+    valDeck3: [],
     charactersAll : [ "Nicole Kidman", "George Clooney",  "Johnny Depp", "Salma Hayek", "Reese Witherspoon" , "Morgan Freeman" , "Will Smith" , "Helen Mirren" , "Emma Stone" , "Patrick Stewart"],
     charNumToPlay: 4,
-    characters : [ "Name1", "Name2",  "Name3", "Name4" ],
-    healthArray : [ 1, 2, 3, 4 ],
-    attackArray : [ ],
-    counterAttackArray : [ ],
+    characters : [],
+    healthArray : [],
+    attackArray : [],
+    counterAttackArray : [],
     player : "",
-    playerPoloroid : "",
     playerHealth : 0,
     playerAttackBase : 0,
     playerAttack : 0,
     playerCounter : 0,
     opponent: "",
-    opponentPoloroid : "",
     opponentHealth : 0,
     opponentAttack : 0,
     opponentCounter : 0,
-    //characterVal : [ 0, 0, 0, 0],
-    //matchNum : 0,
-    valDeck: [],
-    valDeck1: [],
-    valDeck2: [],
-
-    //runningCalc : 0,
-    //wins : 0,
-    //losses : 0,
-
-    randomIntFromInterval : function(min,max) {
-        game.matchNum = Math.floor(Math.random()*(max-min+1)+min);
-        return game.matchNum;
-    },
 
     shuffle : function(array) {
         var i = 0
@@ -55,13 +41,26 @@ var game = {
         //when the page loads the first time:
         restart();
 
+        /*
+        Adding and removing a class to show or hide a element, usually a div.  
+        In this application, the only class that uses this function is d-none (a bootstrap class), 
+        but the function is generic so could be used elsewhere.
+        */
+        function elementToggle(elementIn, classIn, actionIn) {
+            if (actionIn === "hide") {
+                $(elementIn).addClass(classIn);
+            } else if (actionIn === "show") {
+                $(elementIn).removeClass(classIn);
+            }
+        };
+
     function restart(){
         //hide containers where needed opponentListContainer
-        elementToggle("#opponentListContainer", "d-none", "add");
-        elementToggle("#playerCircle", "d-none", "add");
-        elementToggle("#battlefield", "d-none", "add");
-        elementToggle("#msgBoard", "d-none", "add");
-        elementToggle("#restart", "d-none", "add");
+        elementToggle("#opponentListContainer", "d-none", "hide");
+        elementToggle("#playerCircle", "d-none", "hide");
+        elementToggle("#battlefield", "d-none", "hide");
+        elementToggle("#msgBoard", "d-none", "hide");
+        elementToggle("#restart", "d-none", "hide");
 
         //empty the character array
         characters = [];
@@ -72,32 +71,29 @@ var game = {
         
         //create random health power
         for (var j=0; j<100; j++) {
-            game.valDeck[j] = [j+100];
-//            console.log(game.valDeck[j]);
-        }
-        game.shuffle(game.valDeck);
-
-        //create random attack power
-        for (var k=0; k<25; k++) {
-            game.valDeck1[k] = [k+1];
- //           console.log(game.valDeck1[k]);
+            game.valDeck1[j] = [j+100];
         }
         game.shuffle(game.valDeck1);
 
-        //create random counter attack power
-        for (var l=0; l<25; l++) {
-            game.valDeck2[l] = [l+1];
-//            console.log(game.valDeck2[l]);
+        //create random attack power
+        for (var k=0; k<25; k++) {
+            game.valDeck2[k] = [k+1];
         }
         game.shuffle(game.valDeck2);
+
+        //create random counter attack power
+        for (var l=0; l<25; l++) {
+            game.valDeck3[l] = [l+1];
+        }
+        game.shuffle(game.valDeck3);
 
         for (var i=0; i<game.charNumToPlay; i++) {
             //fill the character array with 4 characters from the characterAll array
             game.characters[i] = ( game.charactersAll[i] );
             //fill the health power array with 4 items from the valDeck
-            game.healthArray[i] = ( game.valDeck[i] );
-            game.attackArray[i] = ( game.valDeck1[i] );
-            game.counterAttackArray[i] = ( game.valDeck2[i] );
+            game.healthArray[i] = ( game.valDeck1[i] );
+            game.attackArray[i] = ( game.valDeck2[i] );
+            game.counterAttackArray[i] = ( game.valDeck3[i] );
 
         }
     
@@ -123,14 +119,7 @@ var game = {
 
     };
 
-    //changes the class d-none so that the element either is hidden or not hidden
-    function elementToggle(elementIn, classIn, actionIn) {
-        if (actionIn === "add") {
-            $(elementIn).addClass(classIn);
-        } else if (actionIn === "show") {
-            $(elementIn).removeClass(classIn);
-        }
-    };
+
 
     //create character list html block
     function createCharList (elementIn, typeIn) {
@@ -231,7 +220,7 @@ cat = "PoloroidFrame4.png";
         $("#"+who).append(str);
 
         //hide opponent list container
-        elementToggle("#opponentListContainer", "d-none", "add");
+        elementToggle("#opponentListContainer", "d-none", "hide");
 
         //change game status
         gameStatus = gameStatusIn;
@@ -267,7 +256,7 @@ cat = "PoloroidFrame4.png";
         elementToggle("#opponentListContainer", "d-none", "show");
     
         //hide Character List
-        elementToggle("#characterContainer", "d-none", "add");
+        elementToggle("#characterContainer", "d-none", "hide");
 
     });
 
@@ -298,9 +287,9 @@ cat = "PoloroidFrame4.png";
         elementToggle("#battlefield", "d-none", "show");
         elementToggle("#attack", "d-none", "show");
         //hide message board
-        elementToggle("#msgBoard", "d-none", "add");
+        elementToggle("#msgBoard", "d-none", "hide");
         //hide the player circle
-        elementToggle("#playerCircle", "d-none", "add");
+        elementToggle("#playerCircle", "d-none", "hide");
 
 
     });
@@ -354,7 +343,7 @@ cat = "PoloroidFrame4.png";
                 //msg board
                 msg += '<p>You have been defeated ... game over</p>';
                 //hide the attack button
-                elementToggle("#attack", "d-none", "add");
+                elementToggle("#attack", "d-none", "hide");
                 break;
             case (game.opponentHealth <=0):
                 console.log ("Opponent Dead!");
@@ -374,7 +363,7 @@ cat = "PoloroidFrame4.png";
                     msg += '<p>You are the winner!... game over</p>'
                 }
                 //hide the attack button
-                elementToggle("#attack", "d-none", "add");
+                elementToggle("#attack", "d-none", "hide");
 
                 break;
             default:
@@ -423,5 +412,3 @@ cat = "PoloroidFrame4.png";
     });
 
 });
-
-
