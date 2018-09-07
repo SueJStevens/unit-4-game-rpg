@@ -206,7 +206,7 @@ var game = {
 
         cat = "PoloroidFrame4.png";
             var temp = player;
-            cat = temp.replace(" ","_") + "_starlet.png";
+            cat = temp.replace(" ","_") + "_Starlet.png";
 
         str = '<p>'+ battlelabel +'</p> \
                     <img class="img-responsive d-inline p-1 ' + who +'" id="'+who+'Img" src="assets/images/' + cat + '" alt="' + player +'" value=1 /> \
