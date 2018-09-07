@@ -4,6 +4,8 @@ Bootcamp Assignment 8/25/2018 - RPG Game
 I might be the only person in the class who has not watch a full episode of Star Wars, so I switched it up just a bit and created a Hollywood Stars Battle.
 Each star has Star Points instead of Health Points.
 
+Stars can battle each other just like the old west shoot-out.  When the Player's Star attacks the b-list Opponent, the opponent instantly counter-attacks.  It is possible for the Star-Power points to drop below zero on the same round for both the Player's Star and the b-list Opponent.  In this situation, both are dead and the game is over.
+
 # Object Properties
 * The game starts with 10 characters, although only 4 will be part of the game play.
 * The characters are in an array 'charactersAll' and the # of characters to start the game can also be changed by changing the property 'charNumToPlay'.
