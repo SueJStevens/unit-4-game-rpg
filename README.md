@@ -28,14 +28,14 @@ Stars can battle each other just like the old west shoot-out.  When the Player's
   * 
 
 * restart()
- * Hide Containers
- * Empty the Character Array
- * Shuffle the All Character List so the 4 out of the 10 characters are picked at random
- * Create the Health Points, Attack Points, and Counter Attack Points Arrays
- * Fill the character array and the points arrays with the 1st four 
- * Create the character list
- * Create empty player circle
- * Show the Character Container
+  * Hide Containers
+  * Empty the Character Array
+  * Shuffle the All Character List so the 4 out of the 10 characters are picked at random
+  * Create the Health Points, Attack Points, and Counter Attack Points Arrays
+  * Fill the character array and the points arrays with the 1st four 
+  * Create the character list
+  * Create empty player circle
+  * Show the Character Container
 
 * createCharList()
   * Remove eny elements previously created to clear the dom
