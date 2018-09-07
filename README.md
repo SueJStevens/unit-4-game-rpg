@@ -24,10 +24,37 @@ Each star has Star Points instead of Health Points.
 * Generic Functions
   * elementToggle - adds or removes a class from an element.  In this application used to show or hide divs.
   * 
+
 * restart()
+ * Hide Containers
+ * Empty the Character Array
+ * Shuffle the All Character List so the 4 out of the 10 characters are picked at random
+ * Create the Health Points, Attack Points, and Counter Attack Points Arrays
+ * Fill the character array and the points arrays with the 1st four 
+ * Create the character list
+ * Create empty player circle
+ * Show the Character Container
+
 * createCharList()
+  * Remove eny elements previously created to clear the dom
+  * identify the characters in the array and create the HTML to hold them in a list
+  * create a string to insert the correct picture
+  * create a string to append to the div
+  * append
+
 * createPlayerCircle()
+  * Remove eny elements previously created to clear the dom
+  * create a string to insert the correct picture
+  * create a string to append to the div
+  * append
+
 * createBattleField()
+  * Remove eny elements previously created to clear the dom
+  * create a string to insert the correct picture
+  * create a string to append to the div
+  * append
+  * Hide the Opponent List Container
+
 * four on-click listeners
   * characterList
   * opponentsAvailList

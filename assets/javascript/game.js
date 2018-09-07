@@ -67,7 +67,6 @@ var game = {
 
         //shuffle the charactersAll array so that the chosen characters change with every new game.
         game.shuffle(game.charactersAll);
-
         
         //create random health power
         for (var j=0; j<100; j++) {
@@ -94,9 +93,7 @@ var game = {
             game.healthArray[i] = ( game.valDeck1[i] );
             game.attackArray[i] = ( game.valDeck2[i] );
             game.counterAttackArray[i] = ( game.valDeck3[i] );
-
-        }
-    
+        }    
 
         createCharList("characterList", "character");
         //clear playerCircle
@@ -108,56 +105,60 @@ var game = {
         game.playerCounter = 0;
         createPlayerCircle(game.player, game.playerHealth, "notStarted");
 
+        //show character container
         elementToggle("#characterContainer", "d-none", "show");
-
-/*         for (var z=0; z<game.characters.length; z++) {
-            console.log("attack: " + game.attackArray[z]);
-            console.log("counter: " + game.counterAttackArray[z]);
-    
-        }
- */
-
     };
 
+        //create character list html block
+        function createCharList (elementIn, typeIn) {
+            //remove anything previously created to get a clean slate for the dom.
+            var list = document.getElementById(elementIn);
+            while (list.hasChildNodes()) {   
+                list.removeChild(list.firstChild);
+            }
 
+            //identify the characters in the array and create the HTML to hold them in a list
+            for (var i=0; i<game.characters.length; i++) {
+                name=game.characters[i];
+                healthPoints="Star-Power: "+game.healthArray[i];
+                charID=typeIn+"-"+[i];
+                charindex=[i];
 
-    //create character list html block
-    function createCharList (elementIn, typeIn) {
-        //remove anything previously created to get a clean slate for the dom.
-        var list = document.getElementById(elementIn);
-        while (list.hasChildNodes()) {   
-            list.removeChild(list.firstChild);
-        }
+/*
 
-        //identify the characters in the array and create the HTML to hold them in a list
-        for (var i=0; i<game.characters.length; i++) {
-            name=game.characters[i];
-            healthPoints="Star-Power: "+game.healthArray[i];
-            charID=typeIn+"-"+[i];
-            charindex=[i];
+                                 +--------------------------------+
+                                 | Isn't there always a cat       |
+       |\      _,,,---,,_        | on whatever you're reading?    |
+ ZZZzz /,`.-'`'    -.  ;-;;,_    |                                |
+      |,4-  ) )-,_. ,\ (  `'-'   | https://suejstevens.github.io/ |
+    '---''(_/--'  `-'\_)         | Sue J. Stevens                 |
+                                 | StevensStock@gmail.com         |
+                                 +--------------------------------+
+                               
+*/
 
-            cat1 = "PoloroidFrame1.jpg";
-                var temp1 = name;
-                cat1 = temp1.replace(" ","_") + "_Polaroid.png";
+                cat1 = "PoloroidFrame1.jpg";
+                    var temp1 = name;
+                    cat1 = temp1.replace(" ","_") + "_Polaroid.png";
 
-            //construct the the html to append
-            str = '<div class="col"> \
-                    <div class="row h-100"> \
-                        <div class="col my-auto mx-auto text-right"> \
-                            <p class="m-0 pr-0">' + name + '</p> \
-                            <p class="m-0 pr-0">' + healthPoints + '</p> \
+                //construct the the html to append
+                str = '<div class="col"> \
+                        <div class="row h-100"> \
+                            <div class="col my-auto mx-auto text-right"> \
+                                <p class="m-0 pr-0">' + name + '</p> \
+                                <p class="m-0 pr-0">' + healthPoints + '</p> \
+                            </div> \
+                            <div class="col m-0 p-0 my-auto mx-auto text-right"> \
+                                <img class="img-responsive d-inline p-1 ' + typeIn + '" id="' + charID + '" data-' + typeIn + '-index="' + charindex + '" src="assets/images/' + cat1 + '" alt="' + name + '" /> \
+                            </div> \
                         </div> \
-                        <div class="col m-0 p-0 my-auto mx-auto text-right"> \
-                            <img class="img-responsive d-inline p-1 ' + typeIn + '" id="' + charID + '" data-' + typeIn + '-index="' + charindex + '" src="assets/images/' + cat1 + '" alt="' + name + '" /> \
-                        </div> \
-                    </div> \
-                </div>'
+                    </div>'
 
-            $("#"+elementIn).append(str);
+                $("#"+elementIn).append(str);
 
-        } //end loop
+            } //end loop
 
-    }; //end function
+        }; //end function
 
     function createPlayerCircle (player,phealth, gameStatusIn) {
         //remove anything previously created to get a clean slate for the dom.
@@ -166,12 +167,9 @@ var game = {
             list.removeChild(list.firstChild);
         }
 
-
-console.log("player 180: " + player);
-cat = "PoloroidFrame4.png";
-    var temp = player;
-    cat = temp.replace(" ","_") + "_starlet.png";
-
+        cat = "PoloroidFrame4.png";
+        var temp = player;
+        cat = temp.replace(" ","_") + "_Starlet.png";
 
         //construct the the html to append
         str = '<div class="col"> \
@@ -257,7 +255,6 @@ cat = "PoloroidFrame4.png";
     
         //hide Character List
         elementToggle("#characterContainer", "d-none", "hide");
-
     });
 
     //create on-click listener for the opponent class
@@ -290,15 +287,9 @@ cat = "PoloroidFrame4.png";
         elementToggle("#msgBoard", "d-none", "hide");
         //hide the player circle
         elementToggle("#playerCircle", "d-none", "hide");
-
-
     });
 
     $("#attack").on('click', '.attack', function() {
-        console.log("Attack Happened");
-
-        //math
-
         //clear message board
 
         //remove anything previously created to get a clean slate for the dom.
@@ -318,63 +309,58 @@ cat = "PoloroidFrame4.png";
         //test for death
 
         switch(true) {
-            case (game.playerHealth <=0):
-                console.log ("Player Dead!");
-                //game over -- player dead
+          case (game.playerHealth <=0):
+            //if player dead -- end of game
+            //console.log ("Player Dead!");
 
-                //swap photo
-                //get photo name
-                
-                cat2 = "PoloroidFrame4.png";
-                    var temp2 = game.player;
-                    cat2 = 'assets\\images\\' + temp2.replace(" ","_") + "_Dead.png";
-                $("#defenderImg").attr("src",cat2);
+            //swap photo
+            //construct photo name            
+            cat2 = "PoloroidFrame4.png";
+                var temp2 = game.player;
+                cat2 = 'assets\\images\\' + temp2.replace(" ","_") + "_Dead.png";
+            $("#defenderImg").attr("src",cat2);
 
-                //is opponent also dead?
-                if (game.opponentHealth <=0) {
-                    cat3 = "PoloroidFrame4.png";
-                        var temp3 = game.opponent;
-                        cat3 = 'assets\\images\\' + temp3.replace(" ","_") + "_Dead.png";
-                    $("#enemyImg").attr("src",cat3);
-                }
-
-
-
-                //msg board
-                msg += '<p>You have been defeated ... game over</p>';
-                //hide the attack button
-                elementToggle("#attack", "d-none", "hide");
-                break;
-            case (game.opponentHealth <=0):
-                console.log ("Opponent Dead!");
-                //game over -- opponent dead
+            //is opponent also dead?
+            if (game.opponentHealth <=0) {
                 cat3 = "PoloroidFrame4.png";
                     var temp3 = game.opponent;
                     cat3 = 'assets\\images\\' + temp3.replace(" ","_") + "_Dead.png";
                 $("#enemyImg").attr("src",cat3);
+            }
 
-                //check to see if there are any other opponents
-                console.log(game.characters.length);
-                if(game.characters.length > 0) {
-                    msg += '<p>You have defeated ' + game.opponent + ', you can choose another enemy to fight.</p>';
-                    //show opponent list container
-                    elementToggle("#opponentListContainer", "d-none", "show");
-                } else {
-                    msg += '<p>You are the winner!... game over</p>'
-                }
-                //hide the attack button
-                elementToggle("#attack", "d-none", "hide");
+            //msg board
+            msg += '<p>You have been defeated ... game over</p>';
+            //hide the attack button
+            elementToggle("#attack", "d-none", "hide");
+            break;
 
-                break;
-            default:
-                console.log("Keep Playing");
+          case (game.opponentHealth <=0):
+            //if opponent dead -- end of battle, pick another enemy
+            //console.log ("Opponent Dead!");
+            //game over -- opponent dead
+            cat3 = "PoloroidFrame4.png";
+                var temp3 = game.opponent;
+                cat3 = 'assets\\images\\' + temp3.replace(" ","_") + "_Dead.png";
+            $("#enemyImg").attr("src",cat3);
+
+            //check to see if there are any other opponents
+            console.log(game.characters.length);
+            if(game.characters.length > 0) {
+                msg += '<p>You have defeated ' + game.opponent + ', you can choose another enemy to fight.</p>';
+                //show opponent list container
+                elementToggle("#opponentListContainer", "d-none", "show");
+            } else {
+                msg += '<p>You are the winner!... game over</p>'
+            }
+            //hide the attack button
+            elementToggle("#attack", "d-none", "hide");
+
+            break;
+          
+          default:
+            //game continues
+            //console.log("Keep Playing");
         }
-
-        //if player dead -- end of game
-
-        //if opponent dead -- end of battle, pick another enemy
-
-        //game continues
 
         //append the message
         $("#attackMsg").append(msg);
@@ -383,28 +369,14 @@ cat = "PoloroidFrame4.png";
         elementToggle("#msgBoard", "d-none", "show");
 
         //update the health points, attack and counter attack variables
-        
-
         game.playerAttack = parseInt(game.playerAttack) + parseInt(game.playerAttackBase);
 
-
-        
-        
         //display new health points on the character
         $('#defender-sp').text('Star-Power: '+game.playerHealth);
         //display new health points on the enemy
         $('#enemy-sp').text('Star-Power: '+game.opponentHealth);
 
-
-
-
-//        <p>You have been defeated ... game over</p>
-// <p>You have defeated Enemy Name, you can choose another enemy to fight.</p>
-//<p>No enemy here.  You must choose an enemy to continue the game.</p> 
-
-
     });
-
 
 
     $("#restartDiv").on("click",".restart",function() {
