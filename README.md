@@ -1,12 +1,48 @@
-# unit-4-game-rpg
+# Battle Of The Stars
+Fun, interactive role play game to demo features of jQuery library.     
 Bootcamp Assignment 8/25/2018 - RPG Game
+
+## Demo
+*Battle Of The Stars* is deployed to Github.     
+ Please check it out [here](https://suejstevens.github.io/unit-4-game-rpg/).
+
+## Description
+Role Play Game to feature dynamically updated HTML pages with jQuery library.
+* When the game starts, the player will choose a character by clicking on the Star's picture. The player will battle as that character for the rest of the game.
+* The player chooses an opponent by clicking on an Friend-enemy's star picture.
+* The player will now be able to click the `attack` button (The Hollywood Star).
+  * Whenever the player clicks `attack`, their Star damages the opponent. The opponent will lose `star points`, displayed below each picture. 
+  * The opponent character will instantly counter the attack. When that happens, the player's character will lose some of their `star points`. 
+* The player will keep hitting the attack button in an effort to defeat their opponent.
+  * When the defender's `star points` is reduced to zero or below, the player character wins and the player choose a new opponent.
+* The player must then defeat all of the remaining characters to win the game.
+* The player loses the game if their character's `star points` falls to zero or below.
+* No characters in the game can heal or recover `star points`. 
+
+## Companion Homework Assignments
+*Crystal Collector!* is deployed to Github.     
+ Please check it out [here](https://suejstevens.github.io/unit-4-game-crystals/).
+
+## Technology
+### Hosting Platform
+  * Github (https://github.com)
+### Front-End
+  * HTML
+  * CSS
+  * Bootstrap v4 (https://getbootstrap.com/)
+  * Javascript
+  * jQuery
+
+## Info re Homework Assignment
+Assignment Instructions can be found [here](https://suejstevens.github.io/unit-4-game-crystals/):  
 
 I might be the only person in the class who has not watch a full episode of Star Wars, so I switched it up just a bit and created a Hollywood Stars Battle.
 Each star has Star Points instead of Health Points.
 
 Stars can battle each other just like the old west shoot-out.  When the Player's Star attacks the b-list Opponent, the opponent instantly counter-attacks.  It is possible for the Star-Power points to drop below zero on the same round for both the Player's Star and the b-list Opponent.  In this situation, both are dead and the game is over.
 
-# Object Properties
+## Technical Information
+### Object Properties
 * The game starts with 10 characters, although only 4 will be part of the game play.
 * The characters are in an array 'charactersAll' and the # of characters to start the game can also be changed by changing the property 'charNumToPlay'.
 * 'charactersAll' array is shuffled to ensure random chance for any 4 of the characters to be chosen to start the game.
