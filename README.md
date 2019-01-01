@@ -34,7 +34,7 @@ Role Play Game to feature dynamically updated HTML pages with jQuery library.
   * jQuery
 
 ## Info re Homework Assignment
-Assignment Instructions can be found [here](https://suejstevens.github.io/unit-4-game-crystals/):  
+Assignment Instructions can be found [here](https://github.com/SueJStevens/unit-4-game-rpg/blob/master/homework_instructions.md):  
 
 I might be the only person in the class who has not watch a full episode of Star Wars, so I switched it up just a bit and created a Hollywood Stars Battle.
 Each star has Star Points instead of Health Points.
